@@ -13,16 +13,18 @@
 #include <iostream>
 using namespace std;
 
-enum Boolean {FALSE,TRUE};
+enum Boolean {FALSE,TRUE}; //enumeration declaration
+
 class ListNode {
-    friend void equivalence();
+    friend void Equivalence();
+
 private:
     int data;
-    ListNode *link;
-    ListNode(int d) {data =d; link=0;};
-    ListNode(const ListNode &b) {data=b.data; link=b.link;};
+    ListNode* link;
+    ListNode(int d) {data = d; link = 0;};
+    ListNode(const ListNode &b) {data = b.data; link = b.link;};
 };
-typedef ListNode *ListNodePtr;
-extern void equivalence();
+typedef ListNode* ListNodePtr;
+extern void Equivalence();
 
 #endif /* List_hpp */

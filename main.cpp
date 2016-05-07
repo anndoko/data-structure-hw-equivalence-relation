@@ -11,7 +11,7 @@
 
 int main()
 {
-    equivalence();
+    Equivalence();
     return 0;
 }
 
