@@ -9,7 +9,7 @@
 
 void equivalence()
 //input the equivalence pairs and output the equivalence classes
-{	ifstream inFile("equiv.in",ios::in); //"equiv.in" is th input file
+{	ifstream inFile("/Users/Anndo/Documents/NTUST_DataStructure/00-1 homework/DataStructure_homework4/DataStructure_homework4[equivalence]/DataStructure_homework4[equivalence]/equiv.in",ios::in); //"equiv.in" is th input file
     if(!inFile){
         cerr<<"Cannot open input file"<< endl;
         return;
@@ -37,13 +37,13 @@ void equivalence()
     //phase 2:output equivalence classes
     for(i=0;i<n;i++)
         if(out[i]==FALSE) { // NEEDS TO BE OUTPUT
-            cout << endl <<"A new class:"<<i;  out[i]= TRUE;
+            cout << endl <<"A new class: "<<i;  out[i]= TRUE;
             ListNode *x = seq[i]; ListNode *top = 0; // init stack
             while(1) {		// find rest of class
                 while(x) {	//process the list
                     j = x->data;
                     if(out[j]==FALSE) {
-                        cout<<","<<j;
+                        cout<<", "<<j;
                         out[j]=TRUE;
                         ListNode *y = x->link;
                         x->link = top;
