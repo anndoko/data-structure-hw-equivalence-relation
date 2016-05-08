@@ -12,7 +12,7 @@ void Equivalence()
 //PHASE 2 - output: the equivalence classes
 {
     //read the input file: equiv.in
-    ifstream inFile("/Users/Anndo/Documents/NTUST_DataStructure/00-1 homework/DataStructure_homework4/DataStructure_homework4[equivalence]/DataStructure_homework4[equivalence]/equiv.in", ios::in);
+    ifstream inFile("equiv.in", ios::in);
     
     //print the error message and exit if the file cannot be opened
     if(!inFile){
