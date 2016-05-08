@@ -49,6 +49,7 @@ void Equivalence()
     
     //--------------- PHASE 2 ---------------//
     //output: the equivalence classes
+    
     for(i = 0; i < n; i++)
         if(out[i] == FALSE) { //FALSE: not printed yet
             cout << endl << "A new class: " << i;
@@ -77,19 +78,14 @@ void Equivalence()
         } //end of if(out[i]=FALSE)
     
     //--------------- FREE THE MEMORY ---------------//
-    //DEBUG!
-    
-    /*
-    
-     for(i = 0; i < n; i++)
+    cout << endl;
+    for(i = 0; i < n; i++)
         while(seq[i]){
             cout << "here " << i << endl;
-            ListNode* delnode = seq[i];
-            seq[i] = delnode->link;
+            ListNode* delnode = seq[i]->link;
             delete delnode;
+            seq[i] = delnode;
      }
-    
-     */
     
     delete []seq; delete []out;
 }; // end of equivalence
