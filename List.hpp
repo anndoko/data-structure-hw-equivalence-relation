@@ -21,6 +21,7 @@ class ListNode {
 private:
     int data;
     ListNode* link;
+    ListNode* copy_link;
     ListNode(int d) {data = d; link = 0;};
     ListNode(const ListNode &b) {data = b.data; link = b.link;};
 };

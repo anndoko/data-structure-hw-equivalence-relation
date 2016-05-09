@@ -1,5 +1,5 @@
 //
-//  equivalence.cpp
+//  Equivalence.cpp
 //  DataStructure_homework4[equivalence]
 //
 //  Created by Yu-An Ko on 2016/5/7.
@@ -22,30 +22,30 @@ void Equivalence()
     
     int i, j, n;
     
-    inFile>>n; //read the 1st line (number of objects) of the input file
+    inFile >> n; //read the 1st line (number of objects) of the input file
     
     //initialize seq and out
     ListNodePtr* seq = new ListNodePtr[n];
-    Boolean* out = new Boolean[n];
+    Boolean* out = new Boolean[n]; //Boolean out[12];
     for(i = 0; i < n; i++){
         seq[i] = 0;
         out[i] = FALSE;
     }
     
-    //--------------- PHASE 1 ---------------//
-    //input: the equivalence pairs (i, j)
-    //inFile >> i >> j;
     while(inFile.good()){
         
         inFile >> i >> j;
         
         ListNode* x = new ListNode(j);
-        x->link = seq[i]; seq[i] = x; //add j to seq[i]
-        
+        x->link = seq[i];  //add j to seq[i]
+        x->copy_link = seq[i];
+        seq[i] = x;
+                
         ListNode* y = new ListNode(i);
-        y->link = seq[j]; seq[j] = y; //add i to seq[j]
-        
-    };
+        y->link = seq[j];  //add i to seq[j]
+        y->copy_link = seq[j];
+        seq[j] = y;
+    }
     
     //--------------- PHASE 2 ---------------//
     //output: the equivalence classes
@@ -80,13 +80,15 @@ void Equivalence()
     //--------------- FREE THE MEMORY ---------------//
     cout << endl;
     
-    for(i = 0; i < n; i++)
-        while(seq[i] != 0){
+    for(i = 0; i < n; i++){
+        while(seq[i]){
             cout << "here " << i << endl;
-            ListNode* delnode = seq[i]->link;
-            delete seq[i]->link;
-            seq[i] = delnode;
-     }
-    delete []seq; delete []out;
+            ListNode* delnode = seq[i];
+            seq[i] = delnode->copy_link;
+            delete delnode;
+        }
+    }
+    delete []seq;
+    delete []out;
     
 }; // end of equivalence
