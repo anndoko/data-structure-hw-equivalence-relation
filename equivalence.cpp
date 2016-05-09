@@ -79,13 +79,14 @@ void Equivalence()
     
     //--------------- FREE THE MEMORY ---------------//
     cout << endl;
+    
     for(i = 0; i < n; i++)
-        while(seq[i]){
+        while(seq[i] != 0){
             cout << "here " << i << endl;
             ListNode* delnode = seq[i]->link;
-            delete delnode;
+            delete seq[i]->link;
             seq[i] = delnode;
      }
-    
     delete []seq; delete []out;
+    
 }; // end of equivalence
